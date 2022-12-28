@@ -32,3 +32,12 @@
 ;; members of a connection and the collection itself can be bound inside a collection 
 (let [[x y :as coords] [1 2 3 4 5 6]]
   (str "x: " x ", y: " y ", total dimensions" (count coords)))
+(defn ellipsize [words] 
+  (let [[w1 w2 w3] (str/split words #"\s+")]
+    (str/join " " [w1 w2 w3 "..."])))
+
+;; metadata is very useful in Clojure, ex: expected types
+(defn ^{:tag String} shout [^{:tag String} s] (clojure.string/upper-case s))
+
+;; the :tag metadata type is so common that it has its own short form in ^Type
+(defn ^String shout-short [^String s] (clojure.string/upper-case s))
