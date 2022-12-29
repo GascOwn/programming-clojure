@@ -1,4 +1,5 @@
-(ns programming-clojure.chapter2.vars-funcs)
+(ns programming-clojure.chapter2.vars-funcs 
+  (:require [clojure.string :as str]))
 
 (defn greeting
   "Returns a greeting"

@@ -1,7 +1,5 @@
 (ns programming-clojure.chapter2.call-java)
 
-
-
 ;; Clojure can also call Java code, it has a special . notation
 (def rnd (java.util.Random.))
 
