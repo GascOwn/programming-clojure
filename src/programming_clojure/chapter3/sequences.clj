@@ -1,4 +1,5 @@
-(ns programming-clojure.chapter3.sequences)
+(ns programming-clojure.chapter3.sequences 
+  (:require [clojure.string :refer [join]]))
 
 ;; Every aggregate data structure in Clojure is a sequence
 (def s '(1 2 3))
@@ -30,7 +31,19 @@
 ;; cycle takes a function and cycles it infinitely
 (take 10 (cycle (range 3)))
 
+;; interleave takes two lists and alternates elements from each
+(interleave (iterate inc 1) ["A" "B" "C" "D" "E"])
+
+;; interpose returns each element of a seq segregated by a separator, it pairs with (apply str ...) to produce output strings
+(def spesa (interpose ", " ["apples" "oranges" "bananas"]))
+(apply str spesa)
+;; (apply str ...) has been optimized with join
+(join \, spesa)
+
+
+;; Clojure also has a number of ways to filter seqs 
 (def vowel? #{\a\e\i\o\u})
 (def consonant? (complement vowel?))
 (take-while consonant? "the-quick-brown-fox")
+
 
